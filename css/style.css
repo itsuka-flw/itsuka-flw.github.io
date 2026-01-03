@@ -1,0 +1,371 @@
+/* 全体 */
+
+*{
+	margin:0;
+	padding:0;
+}
+
+html {
+	overflow-y: scroll;
+}
+
+body{
+	width:100%;
+	font-family:
+		"Meiryo UI",
+		"Hiragino Sans",
+		"Yu Gothic",
+		sans-serif;
+	font-size:1rem;
+	line-height:1.7;
+	background:url(../images/background.png);
+	background-attachment: fixed;
+}
+
+#page{
+	margin:0 auto;
+	max-width:800px;
+}
+
+/* ヘッダー */
+#header{
+	height:600px;
+	width:100%;
+	background:url(../images/header.png);
+	background-size: 800px 600px;
+}
+
+/* menu */
+#menu ul{
+	margin: 20px auto;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+#menu ul li{
+	display: inline-block;
+	margin: 0 10px;
+}
+
+#menu ul li a {
+ 	display: inline-flex;
+	align-items: center;
+	padding: 8px 14px;
+	color: #1e50a2;
+	text-decoration: none;
+}
+
+#menu ul li a::before {
+	content: "";
+	width: 16px;
+ 	height: 16px;
+	background: url(../images/hanabira1.png) no-repeat center / contain;
+ 	margin-right: 6px;
+}
+
+#menu ul li#now a::before {
+	background-image: url(../images/hanabira2.png);
+}
+
+#menu ul li#now a {
+	pointer-events: none;
+ 	font-weight: bold;
+}
+
+a{
+	color:#1e50a2;
+	font-style:normal;
+	text-decoration:none;
+}
+
+a:visited{
+	color:#1e50a2;
+}
+
+a:hover{
+	color:#fdeeef;
+	font-style:normal;
+}
+	
+
+/* メインコンテンツ */
+div.text{
+	margin:0px auto 40px auto;
+	padding:15px 0px 20px 0px;
+	text-align:left;
+	line-height: 1.7;
+	width:100%;
+	max-width:720px;
+	border: 3px solid #1e50a2;
+	border-radius:10px;
+	background-color:#ffffff;
+}
+
+p{
+	margin:10px 16px 30px 16px;
+	padding:0px 5px;
+	color:#000000;
+	line-height : 25px;
+	font-size:1rem;
+	word-break: break-word;
+	overflow-wrap: break-word;
+}
+
+.p-lined{
+	background:url(../images/line.png);
+}
+
+.image{
+	margin:0.8rem 16px;
+	text-align:center;
+	padding:0px 5px;
+	color:#000000;
+	line-height : 25px;
+	font-size:0.75rem;
+	word-break: break-all;
+	background:none;
+}
+
+img.grow {
+	-webkit-transition:0.6s ease-in-out;
+	-moz-transition:0.6s ease-in-out;
+	-ms-transition:0.6s ease-in-out;
+	-o-transition:0.6s ease-in-out;
+	transition:0.6s ease-in-out;
+}
+
+img.grow:hover {
+	-webkit-transform:scale(1.5,1.5);
+	-moz-transform:scale(1.5,1.5);
+	-ms-transform:scale(1.5,1.5);
+	-o-transform:scale(1.5,1.5);
+	transform:scale(1.5,1.5);
+}
+
+p.pagetop_link{
+	margin:0px 20px 0px 0px;
+	padding:0px 0px 0px 0px;
+	text-align:right;
+	background:none;
+}
+
+/* メッセージ */
+
+.message-list {
+ 	list-style: none;
+ 	padding: 0;
+ 	margin: 0 auto 40px;
+ 	max-width: 720px;
+ 	display: grid;
+ 	grid-template-columns: repeat(2, 1fr);
+ 	gap: 24px;
+}
+
+.message-list li {
+	border: 2px solid #1e50a2;
+	border-radius: 16px;
+	padding: 20px 22px;
+	background: linear-gradient(
+  	180deg,
+  	#fff7f9 0%,
+  	#ffffff 60%
+ 	);
+ 	box-shadow:
+   	0 12px 24px rgba(30,80,162,0.18),
+    	0 2px 4px rgba(30,80,162,0.10);
+	position: relative;
+	overflow: hidden;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	display: flex;
+	flex-direction: column;
+}
+
+.message-list li::before {
+	content: "";
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	width: 48px;
+	height: 48px;
+	background: url(../images/snowflake.png) no-repeat center / contain;
+	opacity: 0.15;
+	pointer-events: none;
+	z-index: 0;
+}
+
+.message-list li::after {
+	content: "";
+	position: absolute;
+	bottom: 12px;
+	right: 12px;
+ 	width: 56px;
+ 	height: 56px;
+ 	background: url(../images/sakura.png) no-repeat center / contain;
+ 	opacity: 0.18;
+ 	pointer-events: none;
+ 	z-index: 0;
+}
+
+.message-list li > * {
+ 	position: relative;
+ 	z-index: 1;
+}
+
+.message-list li:hover {
+ 	transform: translateY(-2px);
+ 	box-shadow:
+   	0 16px 28px rgba(30,80,162,0.22),
+   	0 4px 8px rgba(30,80,162,0.12);
+}
+
+.message-text {
+ 	margin: 0 0 1.2em;
+}
+
+.message-sign {
+ 	margin: 0;
+ 	text-align: right;
+ 	font-size: 0.9rem;
+ 	opacity: 0.75;
+ 	letter-spacing: 0.05em;
+ 	margin-top: auto;
+}
+
+@font-face {
+   	font-family: 'kiloji';
+   	src: url('../fonts/kiloji/kiloji.woff2') format('woff2'),
+        url('../fonts/kiloji/kiloji.woff') format('woff');
+    	font-weight: normal;
+    	font-style: normal;
+    	font-display: swap;
+}
+
+@font-face {
+    	font-family: 'uzura';
+    	src: url('../fonts/uzura/uzura_font.woff2') format('woff2'),
+        url('../fonts/uzura/uzura_font.woff') format('woff');
+    	font-weight: normal;
+    	font-style: normal;
+   	font-display: swap;
+}
+
+.font-uzura {
+  	font-family: "uzura", sans-serif;
+}
+
+.font-yomogi {
+  	font-family: "Yomogi", sans-serif;
+}
+
+.font-kiloji {
+  	font-family: "kiloji", sans-serif;
+}
+
+.font-uzura,
+.font-yomogi,
+.font-kiloji {
+  	font-size: 1.05rem;
+  	line-height: 1.9;
+  	letter-spacing: 0.03em;
+}
+
+/* お祝いイラスト */
+.illust-list{
+  	list-style: none;
+  	padding: 0;
+  	margin: 0 auto 40px;
+  	max-width: 720px;
+  	display: grid;
+  	grid-template-columns: repeat(3, 1fr);
+ 	gap: 18px 25px;
+}
+
+.illust-list li{
+  	background: rgba(255, 255, 255, 0.7);
+  	border-radius:12px;
+ 	 padding:5px;
+ 	 text-align:center;
+ 	 box-shadow:
+ 	 0 10px 20px rgba(30,80,162,0.15),
+  	 0 3px 6px rgba(30,80,162,0.10);
+}
+
+.illust-list li:nth-child(3n+1) { transform: rotate(-1.5deg); }
+.illust-list li:nth-child(3n+2) { transform: rotate(1.2deg); }
+.illust-list li:nth-child(3n)   { transform: rotate(-0.8deg); }
+.illust-list li:hover{
+	transform: rotate(0deg) translateY(-2px);
+	z-index:2;
+}
+
+.illust-thumb{
+  	width: 100%;
+  	height: 180px;
+  	object-fit: contain;
+  	background: #ffffff;
+  	border-radius: 10px;
+}
+
+.illust-caption{
+	margin:0;
+}
+
+
+/* フッター */
+
+#footer{
+	height:100px;
+	width:100%;
+}
+
+#footer p{
+	text-align:center;
+	font-size:1rem;
+	background:none;
+}
+
+
+/* スマホ用 */
+
+@media (max-width: 480px) {
+
+h1 {
+   	font-size: 1.6rem;
+  }
+
+h2 {
+    	font-size: 1.3rem;
+    	padding-left: 15px;
+}
+
+p {
+ 	margin: 10px 12px 24px 12px;
+	font-size: 1.05rem;
+}
+
+div.text {
+   	padding: 12px 0 16px 0;
+}
+
+.message-list {
+    	grid-template-columns: 1fr;
+	gap: 20px;
+}
+
+.illust-list {
+   	grid-template-columns: repeat(2, 1fr);
+   	gap: 14px;
+}
+
+#header {
+    	height: 360px;
+    	background-size: cover;
+    	background-position: center;
+}
+
+#menu ul li {
+   	margin: 4px 6px;
+}
+
+}
