@@ -5,6 +5,20 @@
 	padding:0;
 }
 
+:root {
+  --line-main: 2px solid #1e50a2;
+  --line-sub: 1px solid #1e50a2;
+  --line-accent: 3px solid #1e50a2;
+
+  --shadow-base:
+    0 10px 20px rgba(30,80,162,0.15),
+    0 3px 6px rgba(30,80,162,0.10);
+
+  --shadow-hover:
+    0 16px 28px rgba(30,80,162,0.22),
+    0 4px 8px rgba(30,80,162,0.12);
+}
+
 html {
 	overflow-y: scroll;
 }
@@ -29,13 +43,23 @@ body{
 
 /* ヘッダー */
 #header{
-	height:600px;
+	position: relative;
+	aspect-ratio: 4 / 3;
+	height:auto;
 	width:100%;
-	background:url(../images/header.png);
-	background-size: 800px 600px;
+	background:url(../images/header.png) no-repeat center / cover;
 }
 
-/* menu */
+.header-logo{
+	position: absolute;
+  	top: 10%;
+  	left: 30%;
+  	transform: translateX(-50%);
+  	max-width: 50%;
+  	height: auto;
+}
+
+/* メニュー */
 #menu ul{
 	margin: 20px auto;
 	padding: 0;
@@ -50,27 +74,42 @@ body{
 
 #menu ul li a {
  	display: inline-flex;
-	align-items: center;
+ 	align-items: center;
+ 	gap: 6px;
+
+	font-size: 1.05rem;
+  	font-weight: 600; 
+ 	letter-spacing: 0.05em;
+
 	padding: 8px 14px;
+	border-radius: 6px;
+	background: rgba(255, 247, 249, 0.9);
+	border: var(--line-sub);
+ 	box-shadow: var(--shadow-base);
+}
+
+#menu ul li a:hover {
 	color: #1e50a2;
-	text-decoration: none;
+	background: #eef3ff;
+  	transform: translateY(-2px);
+ 	box-shadow: var(--shadow-hover);
 }
 
 #menu ul li a::before {
-	content: "";
-	width: 16px;
- 	height: 16px;
-	background: url(../images/hanabira1.png) no-repeat center / contain;
- 	margin-right: 6px;
-}
-
-#menu ul li#now a::before {
-	background-image: url(../images/hanabira2.png);
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: url(../images/hanabira1.png) no-repeat center / contain;
+  opacity: 0.8;
 }
 
 #menu ul li#now a {
-	pointer-events: none;
- 	font-weight: bold;
+	background: #fff0f4;
+}
+
+#menu ul li#now a::before {
+  background-image: url(../images/hanabira2.png);
+  opacity: 1;
 }
 
 a{
@@ -91,13 +130,13 @@ a:hover{
 
 /* メインコンテンツ */
 div.text{
-	margin:0px auto 40px auto;
+	margin:0px auto 20px auto;
 	padding:15px 0px 20px 0px;
 	text-align:left;
 	line-height: 1.7;
 	width:100%;
 	max-width:720px;
-	border: 3px solid #1e50a2;
+	border: var(--line-main);
 	border-radius:10px;
 	background-color:#ffffff;
 }
@@ -105,7 +144,7 @@ div.text{
 p{
 	margin:10px 16px 30px 16px;
 	padding:0px 5px;
-	color:#000000;
+	color:#333333;
 	line-height : 25px;
 	font-size:1rem;
 	word-break: break-word;
@@ -116,38 +155,53 @@ p{
 	background:url(../images/line.png);
 }
 
-.image{
-	margin:0.8rem 16px;
-	text-align:center;
-	padding:0px 5px;
-	color:#000000;
-	line-height : 25px;
-	font-size:0.75rem;
-	word-break: break-all;
-	background:none;
+h2 {
+	max-width: 720px;
+	margin: 0 auto 20px;
+	padding: 6px 12px;
+
+	font-size: 1.4rem;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+
+	color: #1e50a2;
+
+	background: linear-gradient(
+	180deg,
+	rgba(255,247,249,0.9) 0%,
+	 rgba(255,255,255,0.9) 100%
+ 	);
+
+	border-left: 6px solid #f2a7c6;
+	border-bottom: 2px solid #1e50a2;
+	
+	border-radius: 4px 4px 0 0;
 }
 
-img.grow {
-	-webkit-transition:0.6s ease-in-out;
-	-moz-transition:0.6s ease-in-out;
-	-ms-transition:0.6s ease-in-out;
-	-o-transition:0.6s ease-in-out;
-	transition:0.6s ease-in-out;
-}
-
-img.grow:hover {
-	-webkit-transform:scale(1.5,1.5);
-	-moz-transform:scale(1.5,1.5);
-	-ms-transform:scale(1.5,1.5);
-	-o-transform:scale(1.5,1.5);
-	transform:scale(1.5,1.5);
-}
-
+/* ページトップに戻るリンク */
 p.pagetop_link{
-	margin:0px 20px 0px 0px;
-	padding:0px 0px 0px 0px;
+	margin:8px auto 32px;
+	max-width: 720px;
 	text-align:right;
-	background:none;
+}
+
+p.pagetop_link a {
+ 	font-size: 0.8rem;
+	color: #1e50a2;
+	text-decoration: none;
+	opacity: 0.65;
+  	letter-spacing: 0.05em;
+	transition: opacity 0.2s ease;
+}
+
+p.pagetop_link a:hover {
+	transform: translateY(-2px);
+	background: #fff0f4;
+}
+
+p.pagetop_link a:hover{
+	opacity: 1;
+	text-decoration: underline;
 }
 
 /* メッセージ */
@@ -155,7 +209,7 @@ p.pagetop_link{
 .message-list {
  	list-style: none;
  	padding: 0;
- 	margin: 0 auto 40px;
+ 	margin: 0 auto 20px;
  	max-width: 720px;
  	display: grid;
  	grid-template-columns: repeat(2, 1fr);
@@ -163,20 +217,17 @@ p.pagetop_link{
 }
 
 .message-list li {
-	border: 2px solid #1e50a2;
-	border-radius: 16px;
+	border: var(--line-main);
+	border-radius: 14px;
 	padding: 20px 22px;
 	background: linear-gradient(
   	180deg,
   	#fff7f9 0%,
   	#ffffff 60%
  	);
- 	box-shadow:
-   	0 12px 24px rgba(30,80,162,0.18),
-    	0 2px 4px rgba(30,80,162,0.10);
+ 	box-shadow: var(--shadow-base);
 	position: relative;
 	overflow: hidden;
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	display: flex;
 	flex-direction: column;
 }
@@ -214,9 +265,7 @@ p.pagetop_link{
 
 .message-list li:hover {
  	transform: translateY(-2px);
- 	box-shadow:
-   	0 16px 28px rgba(30,80,162,0.22),
-   	0 4px 8px rgba(30,80,162,0.12);
+	box-shadow: var(--shadow-hover);
 }
 
 .message-text {
@@ -274,7 +323,7 @@ p.pagetop_link{
 .illust-list{
   	list-style: none;
   	padding: 0;
-  	margin: 0 auto 40px;
+  	margin: 0 auto 20px;
   	max-width: 720px;
   	display: grid;
   	grid-template-columns: repeat(3, 1fr);
@@ -283,12 +332,10 @@ p.pagetop_link{
 
 .illust-list li{
   	background: rgba(255, 255, 255, 0.7);
-  	border-radius:12px;
- 	 padding:5px;
- 	 text-align:center;
- 	 box-shadow:
- 	 0 10px 20px rgba(30,80,162,0.15),
-  	 0 3px 6px rgba(30,80,162,0.10);
+  	border-radius:10px;
+ 	padding:5px;
+ 	text-align:center;
+ 	box-shadow: var(--shadow-base);
 }
 
 .illust-list li:nth-child(3n+1) { transform: rotate(-1.5deg); }
@@ -304,7 +351,7 @@ p.pagetop_link{
   	height: 180px;
   	object-fit: contain;
   	background: #ffffff;
-  	border-radius: 10px;
+  	border-radius: 8px;
 }
 
 .illust-caption{
@@ -320,8 +367,13 @@ p.pagetop_link{
 }
 
 #footer p{
-	text-align:center;
-	font-size:1rem;
+ 	margin: 0 auto 20px;
+	padding: 0 60px;
+	max-width: 720px;
+	text-align:left;
+	font-size:0.85rem;
+	color: #555555;
+	line-height: 1.6;
 	background:none;
 }
 
@@ -329,6 +381,11 @@ p.pagetop_link{
 /* スマホ用 */
 
 @media (max-width: 480px) {
+
+#page {
+    	padding-left: 10px;
+    	padding-right: 10px;
+ }
 
 h1 {
    	font-size: 1.6rem;
@@ -364,8 +421,29 @@ div.text {
     	background-position: center;
 }
 
-#menu ul li {
-   	margin: 4px 6px;
+#menu ul {
+   	display: flex;
+    	flex-wrap: nowrap;
+    	overflow-x: auto;
+    	gap: 10px;
+	scrollbar-width: none;
+    	padding: 8px 12px;
+    	justify-content: flex-start;
+}
+
+#menu ul::-webkit-scrollbar {
+  	display: none;
+}
+
+ #menu ul li {
+    	flex: 0 0 auto;
+    	margin: 0;
+ }
+
+ #menu ul li a {
+   	white-space: nowrap; 
+    	padding: 6px 12px;
+    	font-size: 0.9rem;
 }
 
 }
