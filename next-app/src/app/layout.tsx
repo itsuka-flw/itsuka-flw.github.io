@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Yomogi } from "next/font/google";
+import { Zen_Maru_Gothic } from 'next/font/google';
 import "./globals.css";
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
