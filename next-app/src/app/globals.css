@@ -283,8 +283,8 @@ p.pagetop_link a:hover{
 
 @font-face {
    	font-family: 'kiloji';
-   	src: url('../fonts/kiloji/kiloji.woff2') format('woff2'),
-        url('../fonts/kiloji/kiloji.woff') format('woff');
+   	src: url('/fonts/kiloji/kiloji.woff2') format('woff2'),
+        url('/fonts/kiloji/kiloji.woff') format('woff');
     	font-weight: normal;
     	font-style: normal;
     	font-display: swap;
@@ -292,8 +292,8 @@ p.pagetop_link a:hover{
 
 @font-face {
     	font-family: 'uzura';
-    	src: url('../fonts/uzura/uzura_font.woff2') format('woff2'),
-        url('../fonts/uzura/uzura_font.woff') format('woff');
+    	src: url('/fonts/uzura/uzura_font.woff2') format('woff2'),
+        url('/fonts/uzura/uzura_font.woff') format('woff');
     	font-weight: normal;
     	font-style: normal;
    	font-display: swap;
