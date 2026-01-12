@@ -153,7 +153,7 @@ p{
 
 h2 {
 	max-width: 720px;
-	margin: 0 auto 20px;
+	margin: 0 12px 20px;
 	padding: 6px 12px;
 
 	font-size: 1.4rem;
@@ -165,7 +165,7 @@ h2 {
 	background: linear-gradient(
 	180deg,
 	rgba(255,247,249,0.9) 0%,
-	 rgba(255,255,255,0.9) 100%
+	rgba(255,255,255,0.9) 100%
  	);
 
 	border-left: 6px solid #f2a7c6;
@@ -358,13 +358,12 @@ p.pagetop_link a:hover{
 /* フッター */
 
 #footer{
-	height:100px;
 	width:100%;
+	padding: 24px 0 40px;
 }
 
 #footer p{
  	margin: 0 auto 20px;
-	padding: 0 60px;
 	max-width: 720px;
 	text-align:left;
 	font-size:0.85rem;
@@ -442,4 +441,16 @@ div.text {
     	font-size: 0.9rem;
 }
 
+#footer p {
+    padding: 0 20px;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
+
 }
+
+#footer p {
+    padding: 0 20px;
+    font-size: 0.8rem;
+    line-height: 1.7;
+  }
