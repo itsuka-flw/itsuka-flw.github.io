@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body id="pagetop" className={yomogi.variable}>
+      <body id="pagetop" className={`${zenMaru.className} ${yomogi.variable}`}>
         <div id="page">
           <Header />
           <Menu />
