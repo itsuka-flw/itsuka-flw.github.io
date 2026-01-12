@@ -169,9 +169,9 @@ h2 {
  	);
 
 	border-left: 6px solid #f2a7c6;
-	border-right: 1px solid #1e50a2;
-	border-top: 1px solid #1e50a2;
-	border-bottom: 1px solid #1e50a2;
+	border-right: 3px solid #1e50a2;
+	border-top: 3px solid #1e50a2;
+	border-bottom: 3px solid #1e50a2;
 }
 
 /* ページトップに戻るリンク */
@@ -430,7 +430,7 @@ div.text {
   	display: none;
 }
 
- #menu ul li {
+#menu ul li {
     	flex: 0 0 auto;
     	margin: 0;
  }
@@ -448,9 +448,3 @@ div.text {
   }
 
 }
-
-#footer p {
-    padding: 0 20px;
-    font-size: 0.8rem;
-    line-height: 1.7;
-  }
