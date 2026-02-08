@@ -1,42 +1,98 @@
-import Link from "next/link";
-import Image from "next/image";
+"use client";
 
-const illusts = [
-  { src: "/images/illust/sample1.png", artist: "△△" },
-  { src: "/images/illust/sample2.png", artist: "△△" },
-  { src: "/images/illust/sample3.png", artist: "□□" },
-  { src: "/images/illust/sample2.png", artist: "△△" },
-  { src: "/images/illust/sample3.png", artist: "△△" },
-  { src: "/images/illust/sample1.png", artist: "□□" },
-];
+import { useIllusts } from "@/hooks/useIllusts";
+import { useInfiniteScroll } from "@/hooks/useInfiniteScroll";
+import PageTopLink from "@/components/PageTopLink";
 
 export default function IllustPage() {
+  const {
+    illusts,
+    loading,
+    loadingMore,
+    error,
+    hasMore,
+    loadMore,
+    selectedImage,
+    setSelectedImage,
+  } = useIllusts();
+  const sentinelRef = useInfiniteScroll(loadMore, hasMore, loadingMore);
+
   return (
     <>
-      <h2>お祝いイラスト！</h2>
+      <h2>お祝いイラスト🌸</h2>
       <div className="illust">
         <ul className="illust-list">
-          {illusts.map((illust, index) => (
-            <li key={index} className="illust-card">
-              <Image
-                src={illust.src}
-                alt={`生誕祭イラスト（by ${illust.artist}）`}
-                className="illust-thumb"
-                width={200}
-                height={180}
-                loading="lazy"
-              />
-              <p className="illust-caption">by {illust.artist}</p>
-            </li>
-          ))}
+          {loading ? (
+            <li className="loading">読み込み中...</li>
+          ) : error ? (
+            <li className="error">読み込みに失敗しました</li>
+          ) : illusts.length === 0 ? (
+            <li className="no-illust">まだイラストがありません</li>
+          ) : (
+            <>
+              {illusts.map((illust, index) => (
+                <li
+                  key={index}
+                  className="illust-card"
+                  onClick={() => setSelectedImage(illust)}
+                >
+                  <img
+                    src={illust.src}
+                    alt={`生誕祭イラスト（by ${illust.name}）`}
+                    className="illust-thumb"
+                    loading="lazy"
+                  />
+                  <p className="illust-caption">
+                    Illustration by{" "}
+                    <a
+                      href={illust.xLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      {illust.name}
+                    </a>
+                  </p>
+                </li>
+              ))}
+              {loadingMore && <li className="loading">読み込み中...</li>}
+              {hasMore && <div ref={sentinelRef} />}
+            </>
+          )}
         </ul>
-
-        <p className="pagetop_link">
-          <Link href="#pagetop" title="ページトップへ戻る">
-            ▲ページトップに戻る
-          </Link>
-        </p>
+        <PageTopLink />
       </div>
+
+      {selectedImage && (
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button
+              className="modal-close"
+              onClick={() => setSelectedImage(null)}
+            >
+              ×
+            </button>
+            <img
+              src={selectedImage.src}
+              alt={`生誕祭イラスト（by ${selectedImage.name}）`}
+              className="modal-image"
+            />
+            <p className="modal-caption">
+              Illustration by{" "}
+              <a
+                href={selectedImage.xLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {selectedImage.name}
+              </a>
+            </p>
+          </div>
+        </div>
+      )}
     </>
   );
 }
