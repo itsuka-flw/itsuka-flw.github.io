@@ -11,7 +11,7 @@ export default function IllustPage() {
 
       <div id="all">
         <div id="main">
-          <h2>お祝いイラスト！</h2>
+          <h2>お祝いイラスト🌸</h2>
 
           <div className="illust">
             <IllustGrid />
