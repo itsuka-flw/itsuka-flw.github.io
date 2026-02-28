@@ -22,7 +22,7 @@ const yomogi = Yomogi({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sakura-aoi-birthday-page.vercel.app"),
+  metadataBase: new URL("https://itsuka-flw-github-io.vercel.app"),
   title: "碧依さくら生誕祭 2026 - 非公式ファンサイト",
   description: "碧依さくらさんの誕生日をお祝いする非公式ファンサイトです。",
   openGraph: {
