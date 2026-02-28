@@ -1,0 +1,33 @@
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 101;
+  overflow: hidden;
+}
+
+.fallingImage {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    animation-timing-function: linear;
+    transform-origin: center;
+}
+
+/* 落下アニメーション */
+@keyframes fallAndRotate {
+    0% {
+        transform: translateY(-50px) rotateZ(0deg);
+        opacity: 0; 
+    }
+    20% {
+        opacity: 1; 
+    }
+    100% {
+        transform: translateY(110vh) rotateZ(1080deg); 
+        opacity: 0.5;
+    }
+}
